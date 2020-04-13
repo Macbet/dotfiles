@@ -1,0 +1,21 @@
+#!/usr/bin/env -S python3 -u
+# vi:syntax=python
+
+import i3ipc
+
+sway = i3ipc.Connection()
+
+# this script works with only one keyboard. we find it's ID.
+# it should have more than one layout
+for input_dev in sway.get_inputs():
+	if input_dev.type == 'keyboard' and len(input_dev.xkb_layout_names) > 1:
+		keyboard = input_dev.identifier
+		print(input_dev.xkb_active_layout_name[:2].upper())
+		break
+
+def on_input(sway, event):
+	if event.input.identifier == keyboard and event.change == "xkb_layout":
+		print(event.input.xkb_active_layout_name[:2].upper())
+
+sway.on(i3ipc.Event.INPUT, on_input)
+sway.main()
