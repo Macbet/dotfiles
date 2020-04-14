@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/keyboard","temperature","network", "cpu", "memory", "battery", "custom/powerbutton"],
+    "modules-right": ["custom/keyboard","pulseaudio","temperature","network", "cpu", "memory", "battery", "custom/powerbutton"],
     "gtk-layer-shell": true,
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -49,6 +49,25 @@
         "format-ethernet": "{ipaddr}|",
         "format-disconnected": "Disconnected ⚠|",
         "on-click": "nm-connection-editor"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} | {format_source}",
+        "format-bluetooth-muted": " {icon} | {format_source}",
+        "format-muted": " {format_source}|",
+        "format-source": "{volume}% |",
+        "format-source-muted": "|",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
     },
     "custom/keyboard": {
          "exec": "~/.config/waybar/modules/keyboard",
