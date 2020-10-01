@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "bridgecrewio/checkov": {
-        "revision": "f9171b5fb1d0556d13b1b50aa4f40b2aa451f832",
+        "revision": "3ca26f442f9352da371f0ef394ca86d6430c0953",
         "options": {
           "clone_target": "https://github.com/bridgecrewio/checkov"
         }
